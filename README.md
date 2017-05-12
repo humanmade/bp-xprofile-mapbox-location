@@ -2,4 +2,4 @@
 
 New xprofile field type for selecting a location.
 
-Instructions - `define( 'bp_xprofile_mapbox_location_access_token', 'XXX' );``
+Instructions - `define( 'bp_xprofile_mapbox_location_access_token', 'XXX' );`
