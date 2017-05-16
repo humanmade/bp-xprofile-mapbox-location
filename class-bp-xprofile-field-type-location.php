@@ -100,7 +100,13 @@ class BP_XProfile_Field_Type_Location extends \BP_XProfile_Field_Type_Textbox {
 			<script>
 
 			var input = jQuery( '#<?php echo esc_attr( bp_get_the_profile_field_input_name() ); ?>' );
-			var data  = JSON.parse( input.val() );
+			var data;
+
+			try {
+				data = JSON.parse( val );
+			} catch( err ) {
+				data = [];
+			}
 
 			jQuery( document ).ready( function() {
 				mapboxgl.accessToken = <?php echo wp_json_encode( BP_XPROFILE_MAPBOX_LOCATION_ACCESS_TOKEN ); ?>;
