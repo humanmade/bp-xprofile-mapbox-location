@@ -103,7 +103,7 @@ class BP_XProfile_Field_Type_Location extends \BP_XProfile_Field_Type_Textbox {
 			var data;
 
 			try {
-				data = JSON.parse( val );
+				data = JSON.parse( input.val() );
 			} catch( err ) {
 				data = [];
 			}
@@ -130,11 +130,8 @@ class BP_XProfile_Field_Type_Location extends \BP_XProfile_Field_Type_Textbox {
 
 				var updatePosition = function( data ) {
 					input.val( JSON.stringify( data ) );
-					console.log( data );
 					marker.setLngLat( data.coordinates );
 				}
-				console.log( marker );
-
 
 				geoCoder.on( 'result', function( data ) {
 					updatePosition( {
@@ -144,7 +141,6 @@ class BP_XProfile_Field_Type_Location extends \BP_XProfile_Field_Type_Textbox {
 				})
 
 				map.on( 'click', function(e) {
-					console.log( e );
 					updatePosition( {
 						coordinates: [ e.lngLat.lng, e.lngLat.lat ],
 						name: '',
